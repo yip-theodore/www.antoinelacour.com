@@ -1,5 +1,10 @@
 // tailwind.config.js
 module.exports = {
+  // mode: 'jit',
+  // purge: [
+  //   './public/**/*.html',
+  //   './src/**/*.{js,jsx,ts,tsx,vue}',
+  // ],
   theme: {
     // ...
   },
@@ -7,4 +12,9 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
     // ...
   ],
+  variants: {
+    extend: {
+        display: ['group-hover', 'group-focus', 'focus-within'],
+    },
+  },
 }

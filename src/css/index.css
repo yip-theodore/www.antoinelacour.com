@@ -5,3 +5,42 @@
 body {
   @apply bg-black;
 }
+
+._::before {
+  content: '_';
+}
+
+._box::after {
+  content: '';
+  position: absolute;
+  /* background: rgba(255, 0, 0, 0.1); */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: height 1s;
+}
+._box:hover::after {
+  height: 0;
+}
+
+._menu:focus-within > button > span {
+  display: none;
+  /* opacity: 0.5; */
+}
+/* ._menu:focus-within > button > span::after {
+  content: none;
+} */
+._menu:focus-within > button:focus-within > ._contact_form {
+  display: block;
+}
+
+._cv::after {
+  content: '\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV';
+}
+._about::after {
+  content: '\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About';
+}
+._contact::after {
+  content: '\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact';
+}
