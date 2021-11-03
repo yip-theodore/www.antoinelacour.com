@@ -1,6 +1,8 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from 'gatsby'
+import { elementScrollIntoViewPolyfill } from "seamless-scroll-polyfill";
 
+elementScrollIntoViewPolyfill()
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -38,13 +40,11 @@ const IndexPage = () => {
   // const toggleFocus = e => e.currentTarget[document.activeElement === e.currentTarget ? 'blur' : 'focus']()
   return (
     <pre className='min-h-screen bg-black text-white text-sm pb-12'>
-      <div className='group fixed z-10 bg-white text-black m-6 p-3 w-72 _box'>
+      <div className='group fixed z-10 bg-white text-black m-6 p-3 w-64 _box'>
         <div className='group-hover:hidden'>
-          <h1 className='_'>Name</h1>
-          <br />
+          <h1 className='_ mb-3'>Name</h1>
           <p>Address</p>
-          <p>City</p>
-          <br />
+          <p className='mb-3'>City</p>
           <p>@handle</p>
           <p>+33(0)0.00.00.00.00</p>
           <p>contact@mail.com</p>
@@ -83,12 +83,12 @@ const IndexPage = () => {
       <div className='h-60'></div>
       {data.allFile.group.map(({ fieldValue, edges }) =>
         <div className='_project block group mt-6' key={fieldValue}>
-          <p className='pl-6 mb-3'>{fieldValue.split('_')[1]}</p>
+          <p className='pl-6 mb-2'>{fieldValue.split('_')[1]}</p>
           <div className='flex group-focus:flex-col overflow-x-scroll pl-6 _project_photos'>
             {edges.map(({ node: { id, name, publicURL } }) =>
-              <a href role='button' tabIndex='0' className='w-1/2 md:w-1/4 group-focus:w-auto flex-shrink-0 mr-6 mb-6 _project_photo' key={id} onFocus={e => setTimeout(() => e.target.scrollIntoView())}>
-                <p className='mb-1.5'>{name.split('_')[1]}</p>
-                <div className='aspect-w-4 aspect-h-3'>
+              <a href role='button' tabIndex='0' className='w-1/2 md:w-1/4 group-focus:w-auto flex-shrink-0 mr-6 mb-6 _project_photo' key={id} onFocus={e => setTimeout(() => e.target.scrollIntoView({ behavior: 'smooth' }))}>
+                <p className='text-xs my-1'>{name.split('_')[1]}</p>
+                <div className='aspect-w-4 aspect-h-3 -mt-px'>
                   <img className='w-full h-full object-cover' src={publicURL} alt='_' />
                 </div>
               </a>
