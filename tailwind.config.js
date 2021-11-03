@@ -15,6 +15,8 @@ module.exports = {
   variants: {
     extend: {
         display: ['group-hover', 'group-focus', 'focus-within'],
+        width: ['group-focus'],
+        flexDirection: ['group-focus'],
     },
   },
 }

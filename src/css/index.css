@@ -24,15 +24,30 @@ body {
   height: 0;
 }
 
-._menu:focus-within > button > span {
+._menu:focus-within > a > span {
   display: none;
   /* opacity: 0.5; */
 }
 /* ._menu:focus-within > button > span::after {
   content: none;
 } */
-._menu:focus-within > button:focus-within > ._contact_form {
+._menu:focus-within > a:focus-within > ._contact_form {
   display: block;
+}
+
+._menu:focus-within ~ ._close_button, ._project:focus-within ~ ._close_button {
+  color: red;
+  display: block;
+}
+._project {
+  outline: none;
+}
+
+._project:focus-within ._project_photos {
+  flex-direction: column;
+}
+._project:focus-within ._project_photo {
+  width: auto;
 }
 
 ._cv::after {
