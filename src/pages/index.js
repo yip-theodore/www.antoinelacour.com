@@ -1,6 +1,6 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from 'gatsby'
-import { elementScrollIntoViewPolyfill } from "seamless-scroll-polyfill";
+import { elementScrollIntoViewPolyfill } from 'seamless-scroll-polyfill'
 
 elementScrollIntoViewPolyfill()
 
@@ -88,7 +88,7 @@ const IndexPage = () => {
             {edges.map(({ node: { id, name, publicURL } }) =>
               <a href role='button' tabIndex='0' className='w-1/2 md:w-1/4 group-focus:w-auto flex-shrink-0 mr-6 mb-6 _project_photo' key={id} onFocus={e => setTimeout(() => e.target.scrollIntoView({ behavior: 'smooth' }))}>
                 <p className='text-xs my-1'>{name.split('_')[1]}</p>
-                <div className='aspect-w-4 aspect-h-3 -mt-px'>
+                <div className='aspect-w-4 aspect-h-3'>
                   <img className='w-full h-full object-cover' src={publicURL} alt='_' />
                 </div>
               </a>
