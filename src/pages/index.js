@@ -2,7 +2,7 @@ import * as React from "react"
 import { useStaticQuery, graphql } from 'gatsby'
 import { elementScrollIntoViewPolyfill } from 'seamless-scroll-polyfill'
 
-elementScrollIntoViewPolyfill()
+elementScrollIntoViewPolyfill?.()
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
