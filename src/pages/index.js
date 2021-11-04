@@ -43,7 +43,8 @@ const IndexPage = () => {
   // }), {})
   console.log(data)
   // const toggleFocus = e => e.currentTarget[document.activeElement === e.currentTarget ? 'blur' : 'focus']()
-  const [ message, setMessage ] = React.useState('')
+  // const [ message, setMessage ] = React.useState('')
+  const ref = React.useRef()
   return (
     <pre className='min-h-screen bg-black text-white text-sm pb-12'>
       <Helmet>
@@ -80,11 +81,14 @@ const IndexPage = () => {
           <a href role='button' tabIndex='0' className='group text-left mr-6'>
             <span className='_group-focus:hidden _contact'>Me contacter</span>
             <div className='hidden group-focus:block _bg-yellow-100 w-full md:w-1/2 fixed z-10 top-0 left-0 _contact_form'>
-              <div className='bg-white text-black m-6 p-3 flex flex-col'>
+              <form onSubmit={e => {
+                e.preventDefault()
+                window.location.href = `mailto:antoine.lacour@free.fr?body=${encodeURIComponent(ref.current.value)}`
+              }} className='bg-white text-black m-6 p-3 flex flex-col'>
                 <p className='mb-1.5'>Message:</p>
-                <textarea className='text-lg bg-gray-100 p-1.5 w-full block mb-3' rows='5' placeholder='…' value={message} onChange={e => setMessage(e.target.value)} />
-                <a className='bg-black text-white py-1.5 px-2.5 inline-block ml-auto' href={`mailto:antoine.lacour@free.fr?body=${message}`}>OK</a>
-              </div>
+                <textarea ref={ref} className='text-lg bg-gray-100 p-1.5 w-full block mb-3' rows='5' placeholder='…' />
+                <button type='submit' className='bg-black text-white py-1.5 px-2.5 inline-block ml-auto'>OK</button>
+              </form>
             </div>
           </a>
         </div>

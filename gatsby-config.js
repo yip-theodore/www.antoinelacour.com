@@ -1,7 +1,7 @@
 module.exports = {
   // pathPrefix: "/my-gatsby-site",
   siteMetadata: {
-    title: "My Gatsby Site",
+    siteUrl: 'https://www.antoinelacour.com'
   },
   plugins: [
     "gatsby-plugin-image",
@@ -16,5 +16,6 @@ module.exports = {
     },
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-cname'
   ],
 };
