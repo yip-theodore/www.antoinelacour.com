@@ -47,7 +47,7 @@ const IndexPage = () => {
   return (
     <pre className='min-h-screen bg-black text-white text-sm pb-12'>
       <Helmet>
-        <title>Antoine Lacour</title>
+        <title>Portfolio numérique — Antoine Lacour</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"></meta>
       </Helmet>
       <div className='group fixed z-10 bg-white text-black m-6 p-3 w-72 _box'>
@@ -83,7 +83,7 @@ const IndexPage = () => {
               <div className='bg-white text-black m-6 p-3 flex flex-col'>
                 <p className='mb-1.5'>Message:</p>
                 <textarea className='text-lg bg-gray-100 p-1.5 w-full block mb-3' rows='5' placeholder='…' value={message} onChange={e => setMessage(e.target.value)} />
-                <a className='border border-black py-1.5 px-2.5 inline-block ml-auto' href={`mailto:antoine.lacour@free.fr?body=${message}`}>OK</a>
+                <a className='bg-black text-white py-1.5 px-2.5 inline-block ml-auto' href={`mailto:antoine.lacour@free.fr?body=${message}`}>OK</a>
               </div>
             </div>
           </a>
