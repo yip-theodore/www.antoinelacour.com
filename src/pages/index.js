@@ -87,7 +87,7 @@ const IndexPage = () => {
               }} className='bg-white text-black m-6 p-3 flex flex-col'>
                 <p className='mb-1.5'>Message:</p>
                 <textarea ref={ref} className='text-lg bg-gray-100 p-1.5 w-full block mb-3' rows='5' placeholder='…' />
-                <button type='submit' className='bg-black text-white py-1.5 px-2.5 inline-block ml-auto'>OK</button>
+                <button type='submit' className='bg-black text-white py-1.5 px-4 inline-block ml-auto'>OK</button>
               </form>
             </div>
           </a>
@@ -103,7 +103,7 @@ const IndexPage = () => {
               <a href role='button' tabIndex='0' className='w-1/2 md:w-1/4 group-focus:w-auto flex-shrink-0 mr-6 mb-6 _project_photo' key={node.id} onFocus={e => setTimeout(() => e.target.scrollIntoView({ behavior: 'smooth' }))}>
                 <p className='truncate text-xs my-1'>{node.name.split('_')[1]}</p>
                 <div className='aspect-w-4 aspect-h-3'>
-                  <GatsbyImage className='w-full h-full object-cover' image={getImage(node)} alt='_' />
+                  <GatsbyImage className='w-full h-full object-cover absolute' image={getImage(node)} alt='_' />
                 </div>
               </a>
             )}

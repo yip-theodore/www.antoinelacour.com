@@ -60,6 +60,6 @@ body {
   content: '\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter';
 }
 
-.gatsby-image-wrapper.gatsby-image-wrapper {
+.gatsby-image-wrapper.absolute {
   position: absolute;
 }
