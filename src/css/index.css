@@ -54,8 +54,8 @@ body {
   content: '\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV\A CV';
 }
 ._about::after {
-  content: '\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About\A About';
+  content: '\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos\A À propos';
 }
 ._contact::after {
-  content: '\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact\A Contact';
+  content: '\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter\A Me contacter';
 }
