@@ -1,13 +1,18 @@
 import React, { useState } from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
+import { Helmet } from 'react-helmet'
+import { useLocation } from "@reach/router"
 import './layout.scss'
+import favicon from '../images/favicon.png'
 
-const Layout = ({ pageTitle, children }) => {
+const Layout = ({ children }) => {
+  const { pathname } = useLocation()
   const data = useStaticQuery(graphql`
     query {
       site {
         siteMetadata {
           title
+          siteUrl
         }
       }
       siteBuildMetadata {
@@ -17,10 +22,24 @@ const Layout = ({ pageTitle, children }) => {
         nodes {
           frontmatter {
             title
+            index
           }
           id
           slug
+          excerpt(pruneLength: 1000)
           body
+        }
+      }
+      allImageSharp {
+        nodes {
+          original {
+            src
+          }
+          parent {
+            ... on File {
+              relativeDirectory
+            }
+          }
         }
       }
     }
@@ -31,11 +50,33 @@ const Layout = ({ pageTitle, children }) => {
   const [ contactShown, showContact ] = useState(false)
 
   const ref = React.useRef()
-  const route = typeof window !== "undefined" && window.location.pathname.replace('/', '')
+
+  const currentNode = data.allMdx.nodes.find(n => pathname.replace(/\/$/, '') === `/${n.slug.replace('/', '')}`) || data.allMdx.nodes.find(n => n.frontmatter.index === 1)
+  const rootNode = data.allMdx.nodes.find(n => !n.frontmatter.index)
+
+  const title = `${(pathname === '/' ? rootNode : currentNode).frontmatter.title} — ${data.site.siteMetadata.title}`
+  const description = (pathname === '/' ? rootNode : currentNode).excerpt
+  const image = data.allImageSharp.nodes.find(n => n.parent.relativeDirectory === currentNode.slug.replace('/', '')).original.src
 
   return (
     <div className='Portfolio'>
-      <title>{pageTitle} — {data.site.siteMetadata.title}</title>
+      <Helmet>
+        <title>{title}</title>
+        <meta name="title" content={title} />
+        <meta name="description" content={description} />
+        <link rel="canonical" href={`${data.site.siteMetadata.siteUrl}${pathname}`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${data.site.siteMetadata.siteUrl}${pathname}`} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={image} />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={`${data.site.siteMetadata.siteUrl}${pathname}`} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={image} />
+        <link rel="icon" type="image/png" href={favicon} sizes="16x16" />
+      </Helmet>
       <header>
         <div>
           <Link to="/">A. L.</Link>
@@ -66,10 +107,10 @@ const Layout = ({ pageTitle, children }) => {
         <div>
           {children}
         </div>
-        <nav className={!route || 'hidden-xs'}>
-          {data.allMdx.nodes.map((node, i) => (
+        <nav className={pathname === '/' || 'hidden-xs'}>
+          {data.allMdx.nodes.filter(n => n.frontmatter.index).map((node, i) => (
             <h2 key={node.id}>
-              <Link to={"/" + node.slug} className={(+route === +i || route === node.slug) && 'active'}>
+              <Link to={'/' + node.slug} className={(+pathname.replace('/', '') === +i || pathname.replace(/\/$/, '') === `/${node.slug.replace('/', '')}`) && 'active'}>
                 {node.frontmatter.title.split(' ').map(word =>
                   <span>{word}</span>
                 ).reduce((acc, curr) => [acc, ' ', curr])}
@@ -104,7 +145,7 @@ const Layout = ({ pageTitle, children }) => {
       </article>
       <article className={aboutShown || "hidden"}>
         <div>
-          Hello ! Moi c’est Antoine, je suis un designer graphiste vivant actuellement à Bruxelles. Je fais principalement des livres, des revues, de la typographie et de la photo. J'aime aussi écrire des nouvelles pendant mon temps libre (quand j’arrive à en trouver). J'ai obtenu mon diplôme de graphiste à l'ESAD de Reims et je fais maintenant mon master à La Cambre en typographie. N'hésitez pas à me contacter pour quelconque projet ou idée :)<br />
+          {rootNode.excerpt}<br />
           <br />
           Dernière mise à jour le {new Date(data.siteBuildMetadata.buildTime).toLocaleDateString()}.<br />
           Antoine Lacour © 2022 — Tous droits réservés.

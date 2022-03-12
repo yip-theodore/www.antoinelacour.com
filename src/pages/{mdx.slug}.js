@@ -3,9 +3,9 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Project from '../components/Project'
 
-const BlogPost = ({ data }) => {
+const Post = ({ data }) => {
   return (
-    <Layout pageTitle={data.mdx.frontmatter.title}>
+    <Layout>
       <Project data={data} />
     </Layout>
   )
@@ -22,4 +22,4 @@ export const query = graphql`
   }
 `
 
-export default BlogPost
+export default Post

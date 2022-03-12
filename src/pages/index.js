@@ -3,9 +3,9 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Project from '../components/Project'
 
-const BlogPost = ({ data }) => {
+const Index = ({ data }) => {
   return (
-    <Layout pageTitle='Portfolio'>
+    <Layout>
       <div className='hidden-xs'>
         <Project data={data} />
       </div>
@@ -15,7 +15,7 @@ const BlogPost = ({ data }) => {
 
 export const query = graphql`
   query {
-    mdx(frontmatter: {index: {eq: 0}}) {
+    mdx(frontmatter: {index: {eq: 1}}) {
       frontmatter {
         title
       }
@@ -24,4 +24,4 @@ export const query = graphql`
   }
 `
 
-export default BlogPost
+export default Index

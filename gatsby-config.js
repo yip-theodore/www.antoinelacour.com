@@ -31,5 +31,6 @@ module.exports = {
     "gatsby-transformer-sharp",
     `gatsby-plugin-sass`,
     'gatsby-plugin-cname',
+    `gatsby-plugin-react-helmet`,
   ],
 };
