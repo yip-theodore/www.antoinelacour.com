@@ -1,0 +1,240 @@
+body {
+  margin: 0;
+  font-family: "Favorit", sans-serif;
+  font-size: 20px;
+  * {
+    box-sizing: border-box;
+  }
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  h2 {
+    text-align: center;
+    font-size: 38px;
+    font-weight: normal;
+    white-space: pre-wrap;
+  }
+  button {
+    appearance: none;
+    background-color: white;
+    border: none;
+    padding: 0;
+    font-family: "Favorit", sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    color: black;
+    font-weight: normal;
+  }
+}
+
+.Portfolio {
+  > header {
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid black;
+    flex-wrap: wrap;
+    height: 40px;
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 1;
+    > div {
+      padding: 0 10px;
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+      @media (max-width: 599px) {
+        width: 100%;
+      }
+      max-width: 1320px;
+      > a {
+        font-size: 30px;
+        margin-right: auto;
+        display: inline-block;
+      }
+    }
+    > aside {
+      background-color: white;
+      @media (max-width: 599px) {
+        width: 100%;
+        // border-top: 1px solid black;
+      }
+      padding: 0 10px;
+      height: 40px;
+      border-bottom: 1px solid black;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      > button {
+        &:hover {
+          font-style: italic;
+        }
+        &:first-child {
+          margin-right: 30px;
+        }
+        &:last-child {
+          @media (min-width: 600px) {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+  > main {
+    margin: 40px auto 0;
+    max-height: 100vh;
+    display: flex;
+    max-width: 1600px;
+    .Project {
+      @media (min-width: 600px) {
+        max-height: calc(100vh - 40px);
+        padding-right: 30px;
+      }
+      overflow: auto;
+      padding: 20px;
+      position: relative;
+      > div {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        > a {
+          border: 1px solid black;
+          padding: 0 7px;
+          position: absolute;
+          right: 10px;
+          top: 10px;
+        }
+        > h1 {
+          font-weight: normal;
+          margin: 0;
+          white-space: pre-wrap;
+          margin-right: 10px;
+          @media (min-width: 600px) {
+            font-size: 20px;
+            font-style: italic;
+          }
+        }
+      }
+      > footer {
+        text-align: center;
+        font-size: 12px;
+        color: gray;
+      }
+    }
+    nav {
+      @media (min-width: 600px) {
+        max-height: calc(100vh - 40px);
+      }
+      overflow: auto;
+      padding: 20px;
+      max-width: 375px;
+      flex-shrink: 0;
+      margin: 0 auto;
+      > h2 {
+        a.active, a:hover {
+          @media (min-width: 600px) {
+            span {
+              text-decoration: underline;
+            }
+          }
+        }
+        &:first-child {
+          margin-top: 10px;
+        }
+        &:last-child {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+  > article {
+    position: fixed;
+    background-color: white;
+    padding: 10px;
+    top: 40px;
+    display: flex;
+    align-items: flex-start;
+    z-index: 1;
+    // height: calc(100vh - 40px);
+    width: 100%;
+    border-bottom: 1px solid black;
+    @media (min-width: 600px) {
+      height: auto;
+    }
+    > div {
+      flex-grow: 1;
+      margin: 10px;
+    }
+    > button {
+      border: 1px solid black;
+      padding: 0 7px;
+    }
+    > form {
+      width: 100%;
+      > div {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        align-items: start;
+        > span {
+          margin-top: 10px;
+        }
+        > button {
+          border: 1px solid black;
+          padding: 0 7px;
+          margin-left: 10px;
+        }
+      }
+      > textarea {
+        width: 100%;
+        margin-bottom: 10px;
+        display: block;
+        font-family: "Favorit", sans-serif;
+        font-size: 20px;
+        border: 1px solid black;
+        border-radius: 0;
+      }
+      > button {
+        padding: 5px 20px;
+        border: 1px solid black;
+        margin-left: auto;
+        display: block;
+      }
+    }
+  }
+  .overlay {
+    background-color: black;
+    opacity: 0;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    cursor: default;
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+@media (max-width: 599px) {
+  .hidden-xs {
+    display: none !important;
+  }
+}
+@media (min-width: 600px) {
+  .xs-only {
+    display: none !important;
+  }
+}
+@font-face {
+  font-family: "Favorit";
+  src:
+    url("../images/FavoritStd-Regular.woff2") format("woff2"),
+    url("../images/FavoritStd-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
