@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
       }
       allImageSharp {
         nodes {
-          original {
+          fixed(width: 1200) {
             src
           }
           parent {
@@ -56,7 +56,7 @@ const Layout = ({ children }) => {
 
   const title = `${(pathname === '/' ? rootNode : currentNode).frontmatter.title} — ${data.site.siteMetadata.title}`
   const description = (pathname === '/' ? rootNode : currentNode).excerpt
-  const image = data.allImageSharp.nodes.find(n => n.parent.relativeDirectory === currentNode.slug.replace('/', '')).original.src
+  const imageSrc = data.allImageSharp.nodes.find(n => n.parent.relativeDirectory === currentNode.slug.replace('/', '')).fixed.src
 
   return (
     <div className='Portfolio'>
@@ -69,12 +69,12 @@ const Layout = ({ children }) => {
         <meta property="og:url" content={`${data.site.siteMetadata.siteUrl}${pathname}`} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={image} />
+        <meta property="og:image" content={`${data.site.siteMetadata.siteUrl}${imageSrc}`} />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={`${data.site.siteMetadata.siteUrl}${pathname}`} />
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
-        <meta property="twitter:image" content={image} />
+        <meta property="twitter:image" content={`${data.site.siteMetadata.siteUrl}${imageSrc}`} />
         <link rel="icon" type="image/png" href={favicon} sizes="16x16" />
       </Helmet>
       <header>
