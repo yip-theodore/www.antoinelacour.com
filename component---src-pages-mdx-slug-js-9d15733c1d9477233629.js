@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkwww_antoinelacour_com=self.webpackChunkwww_antoinelacour_com||[]).push([[711],{8399:function(e,a,n){n.r(a);var t=n(7294),c=n(6090),u=n(5531);a.default=function(e){var a=e.data;return t.createElement(c.Z,null,t.createElement(u.Z,{data:a}))}}}]);
+//# sourceMappingURL=component---src-pages-mdx-slug-js-9d15733c1d9477233629.js.map
