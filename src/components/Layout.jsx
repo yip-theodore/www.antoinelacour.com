@@ -4,9 +4,11 @@ import { Helmet } from 'react-helmet'
 import { useLocation } from "@reach/router"
 import './layout.scss'
 import favicon from '../images/favicon.png'
+import { pathPrefix } from '../../gatsby-config'
 
 const Layout = ({ children }) => {
-  const { pathname } = useLocation()
+  let { pathname } = useLocation()
+  pathname = pathname.replace(pathPrefix, '')
   const data = useStaticQuery(graphql`
     query {
       site {
