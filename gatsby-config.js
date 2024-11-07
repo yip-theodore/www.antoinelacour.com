@@ -1,6 +1,7 @@
 module.exports = {
+  pathPrefix: "/www.antoinelacour.com",
   siteMetadata: {
-    siteUrl: "https://www.antoinelacour.com",
+    siteUrl: "https://yip-theodore.github.io/www.antoinelacour.com",
     title: "Antoine Lacour",
   },
   plugins: [
